@@ -9,10 +9,46 @@
         tools:context="com.example.android.politicalpreparedness.MainActivity">
 
         <!-- TODO: Add image for home screen logo. -->
+        <ImageView
+            android:id="@+id/logo_imageView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/ballot_logo"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- TODO: Add Button to navigate to upcoming elections. -->
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <!-- TODO: Add Button to navigate to representatives. -->
+            <Button
+                android:id="@+id/upcoming_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/darkSlateGray"
+                android:text="UPCOMING ELECTIONS"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/representative_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/darkSlateGray"
+                android:text="FIND MY REPRESENTATIVES"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
