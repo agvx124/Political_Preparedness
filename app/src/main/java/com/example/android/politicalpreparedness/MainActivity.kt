@@ -1,6 +1,7 @@
 package com.example.android.politicalpreparedness
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
