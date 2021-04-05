@@ -12,6 +12,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 import java.util.*
 
 private const val BASE_URL = "https://www.googleapis.com/civicinfo/v2/"
@@ -38,10 +39,14 @@ interface CivicsApiService {
     fun getElections(): ElectionResponse
 
     @GET("/voterinfo")
-    fun getVoterInfo(address: String, electionId: Int): VoterInfoResponse
-    
+    fun getVoterInfo(
+            @Query("address") address: String,
+            @Query("electionId") electionId: Int): VoterInfoResponse
+
     @GET("/representatives")
-    fun getRepresentatives(): RepresentativeResponse
+    fun getRepresentatives(
+            @Query("address") address: String
+    ): RepresentativeResponse
 }
 
 object CivicsApi {
