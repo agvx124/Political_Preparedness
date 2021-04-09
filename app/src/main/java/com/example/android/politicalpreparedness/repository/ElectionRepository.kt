@@ -40,18 +40,18 @@ class ElectionRepository(private val database: ElectionDatabase) {
         return mElectionList
     }
 
-    suspend fun saveElection(election: Election) {
-        withContext(Dispatchers.IO) {
-            database.electionDao.insertElection(election)
-        }
-    }
-
-    fun checkElection(id: Int) : Boolean {
+    fun checkFollow(id: Int) : Boolean {
         val election = database.electionDao.getSingleElection(id)
         election?.let {
             return !election!!.name.isNullOrEmpty()
         }
         return false
+    }
+
+    suspend fun saveElection(election: Election) {
+        withContext(Dispatchers.IO) {
+            database.electionDao.insertElection(election)
+        }
     }
 
     suspend fun deleteElection(electionId: Int) {

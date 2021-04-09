@@ -3,32 +3,41 @@ package com.example.android.politicalpreparedness.election
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.android.politicalpreparedness.R
 import com.example.android.politicalpreparedness.databinding.FragmentVoterInfoBinding
 
 class VoterInfoFragment : Fragment() {
+
+    private lateinit var viewModel: VoterInfoViewModel
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        //TODO: Add ViewModel values and create ViewModel
 
-        //TODO: Add binding values
+        val electionId = VoterInfoFragmentArgs.fromBundle(requireArguments()).argElectionId
+        val electionDivision = VoterInfoFragmentArgs.fromBundle(requireArguments()).argDivision
+        viewModel = ViewModelProvider(this, VoterInfoViewModelFactory(requireActivity().application, electionId, electionDivision)).get(VoterInfoViewModel::class.java)
+
         val binding = FragmentVoterInfoBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        //TODO: Populate voter info -- hide views without provided data.
-        /**
-        Hint: You will need to ensure proper data is provided from previous fragment.
-        */
 
+        binding.saveElectionBtn.setOnClickListener {
+            viewModel.onFollowButtonClick(viewModel.voterInfo.value!!.election)
+        }
 
-        //TODO: Handle loading of URLs
+        viewModel.checkFollowByElection().observe(viewLifecycleOwner, Observer {
+            if (it) {
+                binding.saveElectionBtn.text = "UnFollow Election"
+            }
+            else {
+                binding.saveElectionBtn.text = "Follow Election"
+            }
+        })
 
-        //TODO: Handle save button UI state
-        //TODO: cont'd Handle save button clicks
         return binding.root
     }
-
-    //TODO: Create method to load URL intents
 
 }
