@@ -19,35 +19,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <Button
+            android:id="@+id/upcoming_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@color/darkSlateGray"
+            android:text="@string/upcoming_elections"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <Button
-                android:id="@+id/upcoming_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/darkSlateGray"
-                android:text="UPCOMING ELECTIONS"
-                android:textColor="@color/white" />
-
-            <Button
-                android:id="@+id/representative_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/darkSlateGray"
-                android:text="FIND MY REPRESENTATIVES"
-                android:textColor="@color/white" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/representative_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/darkSlateGray"
+            android:text="@string/find_my_representatives"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/upcoming_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
